@@ -32,7 +32,7 @@ public class SQL
     {
         //SQL commando
         string insertQuery = "INSERT INTO transaction (transaction_date, currencyFrom,currencyTo, amount) VALUES (NOW(),@currencyFrom,@currencyTo, @Amount)";
-
+        
 
         using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
         {
@@ -97,11 +97,10 @@ class Program
     static void Main()
     {
         SQL.Connect();
-        // SQL.Insert();
         CreateHostBuilder().Build().Run();
     }
 
-    public static IHostBuilder CreateHostBuilder() =>
+    public static IHostBuilder CreateHostBuilder() => //Sets up thecall with http calls (API)
         Host.CreateDefaultBuilder()
             .ConfigureWebHostDefaults(webBuilder =>
             {
@@ -117,7 +116,7 @@ public class Startup
     {
         services.AddCors(options =>
         {
-            options.AddPolicy("AllowLocalhost", builder =>
+            options.AddPolicy("AllowLocalhost", builder => //adds who can access
             {
                 builder.WithOrigins("http://127.0.0.1:5500") 
                        .AllowAnyHeader()
@@ -130,7 +129,7 @@ public class Startup
 
     public void Configure(IApplicationBuilder app)
     {
-
+        // Sets up all the routing with PUT and GET and whatwill happen
         app.UseRouting();
 
         app.UseCors("AllowLocalhost"); 
@@ -144,7 +143,6 @@ public class Startup
 
             endpoints.MapGet("/api/select", async context =>
             {
-                // await context.Response.WriteAsync(SQL.Select());
                 List<Transaction> transactions = SQL.Select();
                 string jsonResult = JsonConvert.SerializeObject(transactions);
 
@@ -166,9 +164,8 @@ public class Startup
                         string currencyFrom = requestData.CurrencyFrom;
                         string currencyTo = requestData.CurrencyTo;
 
-                        // Your logic here...
+                        // Execute method with sql commands for insert
                         await context.Response.WriteAsync(SQL.Insert(currencyFrom,currencyTo,amount));
-                        // await context.Response.WriteAsync("PUT request processed successfully.");
                     }
                     else
                     {
@@ -194,7 +191,7 @@ public class Transaction
     public string CurrencyFrom { get; set; }
     public string CurrencyTo { get; set; }
 
-    // Constructor to initialize non-nullable properties / defaukt value
+    // Constructor to initialize non-nullable properties / default value
     public Transaction()
     {
         CurrencyFrom = string.Empty; 

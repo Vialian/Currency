@@ -56,9 +56,9 @@ async function getTransaction() {
 
         console.log(result);
         result.forEach(element => {
-            const listItem = document.createElement("li");
+            const listItem = document.createElement("li"); // create a line foreach data in database
 
-
+            // gets the data from the GET call
 
             id = element["TransactionId"];
             date = element["TransactionDate"];
@@ -105,6 +105,7 @@ async function fetchAvailableCurrencies() {
             // Extract and display currency names
             const currencyOptions = Object.entries(result.currencies).map(([code, name]) => `<option value="${code}">${code}: ${name}</option>`);
 
+            // set values in the dom
             document.getElementById("currencyFrom").innerHTML = currencyOptions.join("");
             document.getElementById("currencyTo").innerHTML = currencyOptions.join("");
 

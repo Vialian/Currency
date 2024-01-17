@@ -1,0 +1,19 @@
+Made a dom with seperate style, so that in the future same style can be used aswell as the code looks cleaner.
+
+I tried not to make too many different classes since it is a small project.
+I use a little of MVC (model view controller) to try and seperate the responsibilities and not have everything all together
+and reduce the tasks one class/file needs to do and for easier chage of code in the future.
+
+I have not gotten to test, but will probably make unit test for the backend and database to check  if the data 
+that is being (PUT) created in the database is the same data that is received(GET).
+
+I also wanted to convert the currency but found out after that I did not have that access so only getting the currency names
+
+
+For this to work:
+
+I made the database in sql workbench so this has to be setup. right now the user is root with password kagemand and the database is called currency
+
+For the backend I used dotnet so the code needs to be run with the dotnet run command.
+
+Frontend needs to be hosted, I used the live server extension

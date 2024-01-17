@@ -1,0 +1,21 @@
+#SQL commands for sql workbench
+
+use Currency;
+CREATE DATABASE Currency;
+
+SELECT DATABASE();
+
+CREATE TABLE transaction (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_date DATE,
+    currencyFrom VARCHAR(255),
+    currencyTo VARCHAR(255),
+    amount DECIMAL(10, 2)
+);
+
+
+INSERT INTO transaction (transaction_date, currencyFrom,currencyTo, amount)
+VALUES (CURRENT_DATE,"USD","DKK",100.50);
+
+SELECT transaction_id, transaction_date, currencyFrom, currencyTo, amount FROM transaction;
+

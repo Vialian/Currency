@@ -173,3 +173,4 @@ C:\Users\shand\Desktop\Code\Currency\Backend\bin\Debug\net8.0\runtimes\win-x64\n
 C:\Users\shand\Desktop\Code\Currency\Backend\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
 C:\Users\shand\Desktop\Code\Currency\Backend\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
 C:\Users\shand\Desktop\Code\Currency\Backend\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\shand\Desktop\Code\Currency\Backend\obj\Debug\net8.0\Backend.sourcelink.json
